@@ -2,13 +2,16 @@ import React from 'react';
 import Header from './components/Header'
 import NoteInput from './components/NoteInput'
 import Results from './components/Results'
+import Scales from './components/Scales'
 
 function App() {
   return (
-    <div>
+    <div>      
       <Header />
       <NoteInput />
-      <Results />
+      {/* <Results />
+      <Scales /> */}
+
     </div>
   );
 }

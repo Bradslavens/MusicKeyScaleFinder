@@ -2,9 +2,11 @@ import React from 'react'
 
 function Header(){
     return(
-        <header>
-            <h1>Music Scale and Key finder</h1>
-        </header>
+        <div class="container-md">
+            <header>
+                <h1>Music Scale and Key Finder App</h1>
+            </header>
+        </div>
     )
 }
 
