@@ -7,19 +7,20 @@ class NoteInput extends Component {
 
         this.state = {
             notes: [],
+            noteKey: 0,
         }
 
-        this.addNotes = this.addNotes.bind(this)
-
+        this.addNotes = this.addNotes.bind(this);
     }
 
     addNotes(event){
         console.log("add note clicked ");
         this.setState(
             {
-                notes: [...this.state.notes, <div>{event.target.value}</div>],
+                notes: [...this.state.notes, <div key={this.state.noteKey.toString} >{event.target.value}</div>],
             }
         );
+
     }
 
 
@@ -28,9 +29,9 @@ class NoteInput extends Component {
             <div>
                 <form>
                         <select  onChange={this.addNotes} >
-                            <option key="1" value="A">A</option>
-                            <option key="2" value="A#Bb">A&#9839;/B&#9837;</option>
-                            <option key="3" value="B">B</option>
+                            <option value="A">A</option>
+                            <option value="A#Bb">A&#9839;/B&#9837;</option>
+                            <option value="B">B</option>
                             <option value="C">C</option>
                             <option value="C#Db">C&#9839;/D&#9837;</option>
                             <option value="D">D</option>
