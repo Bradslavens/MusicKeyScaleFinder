@@ -3,7 +3,9 @@ import React, { Component } from 'react';
 class Results extends Component {
     render(){
         return(
-            <h3>Scale / Key Matches</h3>
+            <div class="container-md">
+                {this.props.userKeys}
+            </div>
         )
     }
 }
