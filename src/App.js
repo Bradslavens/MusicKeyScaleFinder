@@ -6,7 +6,7 @@ import UserPanel from './components/UserPanel';
 function App() {
   return (
     <div>      
-      <Header />
+      <Header value="value1"/>
       <UserPanel />
     </div>
   );

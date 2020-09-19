@@ -1,4 +1,5 @@
-import React, { useImperativeHandle } from 'react';
+import React from 'react';
+import KeyButton from './KeyButton';
 import NoteInput from './NoteInput'
 import Results from './Results'
 
@@ -44,17 +45,39 @@ class UserPanel extends React.Component{
     
         return buttons;
     }
-    
-
 
     render(){
         return (
             <div class="container-md">
                 <Results  userKeys={this.state.userKeys}/>
-                <NoteInput myButtons={() => this.buttons}/>
+                {renderButtons("Brad 1")}
             </div>
         )
     }
+}
+
+function renderButtons(){
+
+    let arr = [];
+
+    
+    for(let i=0;i<5; i++){
+        arr[i] = assignButtons(i);
+    }
+
+    return arr;
+}
+
+function assignButtons(name){
+    return(
+        <KeyButton onClick={()=>handleClick(name)} value={"number" + name} />
+    );
+}
+
+function handleClick(name){
+
+    alert("hello " + name);
+
 }
 
 export default UserPanel;

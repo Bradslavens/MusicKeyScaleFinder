@@ -1,12 +1,12 @@
 import React from 'react';
+import KeyButton from './KeyButton';
 
 class NoteInput extends React.Component{
 
     render() {
         return(
-            <div class="container-md">
-                {/* {Buttons(this.props.onClick)} */}
-                {this.props.myButtons}
+            <div>
+                {/* <KeyButton name="brad" /> */}
             </div>
         )
     }
