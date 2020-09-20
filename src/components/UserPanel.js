@@ -8,88 +8,64 @@ class UserPanel extends React.Component{
         super(props);
 
         this.state = {
-            userKeys: null,
+            userKeys: [],
         }
         this.handleClick = this.handleClick.bind(this)
     }
-
-    handleClick(){
-        this.setState({userKeys: "A"});
-        console.log("handle clicked");
-    }
-
-    // buttons() {
-        
-    //     let key = ["A","AsBb","B","C","CsDb","D","DsEb","E","F","FsGf","G","GsAb"];    
-        
-    //     let buttons = {};
-    //     let myClass;
-    
-    //     for(let i=0; i<key.length; i++){
-    //         if(key[i].length > 1){
-    //             myClass = "btn btn-dark mx-1";
-    //         }
-    //         else
-    //         {
-    //             myClass = "btn btn-light mx-1";
-    //         }
-    
-    //         buttons[key[i]] = myClass;
-    //     }
-    
-    //     return buttons;
-    // }
 
     render(){
         return (
             <div class="container-md">
                 <NoteInput  userKeys={this.state.userKeys}/>
-                {renderButtons()}
+                {this.renderButtons()}
                 <Results />
             </div>
         )
     }
-}
 
-function renderButtons(){
+    handleClick(name){
 
-    let buttons = [];
-
-    console.log("rendering buttons");
-        
-    let key = ["A","AsBb","B","C","CsDb","D","DsEb","E","F","FsGf","G","GsAb"];    
-        
-    let myClass;
-
-    for(let i=0; i<key.length; i++){
-
-        console.log("assiging keys");
-        
-        if(key[i].length > 1){
-            myClass = "btn btn-dark mx-1";
-        }
-        else
-        {
-            myClass = "btn btn-light mx-1";
-        }
-
-        buttons[i]= assignButtons(key[i], myClass)
+        this.setState({userKeys: [...this.state.userKeys, <div>{name}</div>]});
+        //
+    
     }
 
-    return buttons;
+    assignButtons(keyName, divClass){
+        console.log("assigning buttons");
+        return(
+            <KeyButton onClick={()=>this.handleClick(keyName)} value={keyName} class={divClass} />
+        );
+    }
+
+    renderButtons(){
+
+        let buttons = [];
+    
+        console.log("rendering buttons");
+            
+        let key = ["A","AsBb","B","C","CsDb","D","DsEb","E","F","FsGf","G","GsAb"];    
+            
+        let myClass;
+    
+        for(let i=0; i<key.length; i++){
+    
+            console.log("assiging keys");
+            
+            if(key[i].length > 1){
+                myClass = "btn btn-dark mx-1";
+            }
+            else
+            {
+                myClass = "btn btn-light mx-1";
+            }
+    
+            buttons[i]= this.assignButtons(key[i], myClass)
+        }
+    
+        return buttons;
+    }
+    
 }
 
-function assignButtons(keyName, divClass){
-    console.log("assigning buttons");
-    return(
-        <KeyButton onClick={()=>handleClick(keyName)} value={keyName} class={divClass} />
-    );
-}
-
-function handleClick(name){
-
-    alert("hello " + name);
-
-}
 
 export default UserPanel;
