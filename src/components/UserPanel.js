@@ -49,7 +49,7 @@ class UserPanel extends React.Component{
     render(){
         return (
             <div class="container-md">
-                <Results  userKeys={this.state.userKeys}/>
+                <NoteInput  userKeys={this.state.userKeys}/>
                 {renderButtons("Brad 1")}
             </div>
         )
