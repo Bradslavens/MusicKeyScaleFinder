@@ -11,7 +11,6 @@ class UserPanel extends React.Component{
             userKeys: null,
         }
         this.handleClick = this.handleClick.bind(this)
-        this.buttons = this.buttons.bind(this);
     }
 
     handleClick(){
@@ -19,38 +18,34 @@ class UserPanel extends React.Component{
         console.log("handle clicked");
     }
 
-    buttons() {
+    // buttons() {
         
-        let key = ["A","AsBb","B","C","CsDb","D","DsEb","E","F","FsGf","G","GsAb"];    
+    //     let key = ["A","AsBb","B","C","CsDb","D","DsEb","E","F","FsGf","G","GsAb"];    
         
-        let buttons = [];
-        let myClass;
+    //     let buttons = {};
+    //     let myClass;
     
-        for(let i=0; i<key.length; i++){
-            if(key[i].length > 1){
-                myClass = "btn btn-dark mx-1";
-            }
-            else
-            {
-                myClass = "btn btn-light mx-1";
-            }
+    //     for(let i=0; i<key.length; i++){
+    //         if(key[i].length > 1){
+    //             myClass = "btn btn-dark mx-1";
+    //         }
+    //         else
+    //         {
+    //             myClass = "btn btn-light mx-1";
+    //         }
     
-            buttons[i] = <button 
-                            // onClick
-                            type="button" class={myClass}
-                            value={key[i]}
-                            >{key[i]}
-                        </button>
-        }
+    //         buttons[key[i]] = myClass;
+    //     }
     
-        return buttons;
-    }
+    //     return buttons;
+    // }
 
     render(){
         return (
             <div class="container-md">
                 <NoteInput  userKeys={this.state.userKeys}/>
-                {renderButtons("Brad 1")}
+                {renderButtons()}
+                <Results />
             </div>
         )
     }
@@ -58,19 +53,36 @@ class UserPanel extends React.Component{
 
 function renderButtons(){
 
-    let arr = [];
+    let buttons = [];
 
-    
-    for(let i=0;i<5; i++){
-        arr[i] = assignButtons(i);
+    console.log("rendering buttons");
+        
+    let key = ["A","AsBb","B","C","CsDb","D","DsEb","E","F","FsGf","G","GsAb"];    
+        
+    let myClass;
+
+    for(let i=0; i<key.length; i++){
+
+        console.log("assiging keys");
+        
+        if(key[i].length > 1){
+            myClass = "btn btn-dark mx-1";
+        }
+        else
+        {
+            myClass = "btn btn-light mx-1";
+        }
+
+        buttons[i]= assignButtons(key[i], myClass)
     }
 
-    return arr;
+    return buttons;
 }
 
-function assignButtons(name){
+function assignButtons(keyName, divClass){
+    console.log("assigning buttons");
     return(
-        <KeyButton onClick={()=>handleClick(name)} value={"number" + name} />
+        <KeyButton onClick={()=>handleClick(keyName)} value={keyName} class={divClass} />
     );
 }
 

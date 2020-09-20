@@ -4,7 +4,7 @@ class Results extends Component {
     render(){
         return(
             <div>
-                
+                <h3>results</h3>
             </div>
         )
     }

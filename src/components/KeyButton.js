@@ -4,7 +4,7 @@ function KeyButton(props) {
 
     return (
         <div>
-            <button onClick={props.onClick}>{props.value}</button>
+            <button onClick={props.onClick} class={props.class}>{props.value}</button>
         </div>
     );
   }
