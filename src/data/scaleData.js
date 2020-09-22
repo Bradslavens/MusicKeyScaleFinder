@@ -55,6 +55,6 @@ for(let i = 0; i<key.length; i++){
     // console.log(key);
 }
 
-export const scaleData = scales;
+export default scales;
 
 
