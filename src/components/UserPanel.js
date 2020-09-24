@@ -81,11 +81,11 @@ class UserPanel extends React.Component{
         for(let i=0; i<key.length; i++){
             
             if(key[i].length > 1){
-                myClass = "btn btn-dark mx-1";
+                myClass = "";
             }
             else
             {
-                myClass = "btn btn-light mx-1";
+                myClass = "";
             }
     
             buttons[i]= this.assignButtons(key[i], myClass)

@@ -2,7 +2,7 @@ import React from 'react'
 
 function Header(props){
     return(
-        <div class="container-md">  
+        <div class="">  
             <h1>Music Scale Finder App</h1>
         </div>
     )

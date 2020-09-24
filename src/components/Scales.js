@@ -9,13 +9,11 @@ class Scales extends Component {
 
     findMatches(){
         Object.entries(scaleData).forEach(([key,val]) => {
-            // console.log(`${key} : ${val}`);/
             Object.entries(val).forEach(([key1,val1]) => {
                 console.log(`${key1} : ${val1}`);
                 console.log(val1.includes("A"));
             })
         })
-
     }
 
     render(){
