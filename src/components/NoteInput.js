@@ -4,7 +4,7 @@ class NoteInput extends React.Component{
 
     render() {
         return(            
-            <div>
+            <div class="text-lg flex flex-wrap bg-green-400 text-green-100">
                 {this.props.userKeys}
             </div>
         )

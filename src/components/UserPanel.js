@@ -31,7 +31,7 @@ class UserPanel extends React.Component{
 
     handleClick(name){
 
-        this.setState({userKeys: [...this.state.userKeys, <div>{name}</div>]});
+        this.setState({userKeys: [...this.state.userKeys, <div class="p-4">{name}</div>]});
         
         this.matchKeys(name);
         
