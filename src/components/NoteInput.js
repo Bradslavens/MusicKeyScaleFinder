@@ -4,7 +4,7 @@ class NoteInput extends React.Component{
 
     render() {
         return(            
-            <div class="">
+            <div>
                 {this.props.userKeys}
             </div>
         )

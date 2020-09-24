@@ -19,9 +19,11 @@ class UserPanel extends React.Component{
 
     render(){
         return (
-            <div class="container-md">
+            <div>
                 <NoteInput  userKeys={this.state.userKeys}/>
-                {this.renderButtons()}
+                <div class="flex justify-center bg-gray-200 p-5">                    
+                    {this.renderButtons()}
+                </div>
                 <Results scaleMatches={this.state.scales} />
             </div>
         )
@@ -81,11 +83,11 @@ class UserPanel extends React.Component{
         for(let i=0; i<key.length; i++){
             
             if(key[i].length > 1){
-                myClass = "";
+                myClass = "text-white bg-black p-3 border-solid border-gray-600 border-2";
             }
             else
             {
-                myClass = "";
+                myClass = "text-black bg-white p-3 border-solid border-gray-600 border-2";
             }
     
             buttons[i]= this.assignButtons(key[i], myClass)
