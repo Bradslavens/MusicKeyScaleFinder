@@ -10,7 +10,8 @@ class UserPanel extends React.Component{
 
         this.state = {
             userKeys: [],
-            userKeysForCompare: [],
+            userIn: null,
+            scales: scales,
         }
         this.handleClick = this.handleClick.bind(this)
         this.matchKeys = this.matchKeys.bind(this)
@@ -21,7 +22,7 @@ class UserPanel extends React.Component{
             <div class="container-md">
                 <NoteInput  userKeys={this.state.userKeys}/>
                 {this.renderButtons()}
-                <Results />
+                <Results scaleMatches={this.state.scales} />
             </div>
         )
     }
@@ -29,84 +30,43 @@ class UserPanel extends React.Component{
     handleClick(name){
 
         this.setState({userKeys: [...this.state.userKeys, <div>{name}</div>]});
-        //
-        this.matchKeys([...this.state.userKeysForCompare, name]);
         
-        this.setState({userKeysForCompare: [...this.state.userKeysForCompare, name]})
+        this.matchKeys(name);
+        
+        this.setState({userIn: name});
 
     }
 
-    matchKeys(userKeysForCompare){
+    matchKeys(userIn){
 
-        const scaleKeys = scales;
+        var s = this.state.scales;
 
-        var matches = [];
-        let m = 0;
-        for(const keySc in scaleKeys){
-            for(const scaleN in scaleKeys[keySc]){
-                for(let j = 0; j<userKeysForCompare.length; j++){
-                    // test if scale contains user key
-                    if(scaleKeys[keySc][scaleN].includes(userKeysForCompare[j])){
-                        console.log("add " + scaleKeys[keySc][scaleN]);
-                        if(!matches.includes(scaleKeys[keySc][scaleN])){                    
-                            matches.push(scaleKeys[keySc][scaleN]);
-                        }
-                    } else {
-                        console.log("subtract" + m);
-                        matches.slice(m,1);
+        for(var key in s){
+
+            for(var type in s[key]){
+
+                if(!s[key][type].includes(userIn)){
+
+                    delete s[key][type];
+
+                    if(Object.keys(s[key]).length === 0){
+
+                        delete s[key];
+
                     }
                 }
-
-                m++;
-
             }
-        }
+        }   
 
-        console.log(matches)
-
-        // // go through each scale
-        // for(let i = 0; i<scaleKeys.length; i++){
-        //     // test go through userKeysForCompare
-        //     for(let j = 0; j<userKeysForCompare.length; j++){
-        //         // test if scale contains user key
-        //         if(scaleKeys[i].includes(userKeysForCompare[j])){
-        //             console.log("add " + i);
-        //             if(!matches.includes(scaleKeys[i])){                    
-        //                 matches.push(scales[i]);
-        //             }
-        //         } else {
-        //             console.log("subtract" + i);
-        //             matches.slice(i,1);
-        //         }
-        //     }
-        // }
-
-        // let m = 0;
-        // for(const keySc in scaleKeys){
-
-        //     for(let j = 0; j<userKeysForCompare.length; j++){
-        //         // test if scale contains user key
-        //         if(scaleKeys[keySc].includes(userKeysForCompare[j])){
-        //             console.log("add " + keySc);
-        //             if(!matches.includes(scaleKeys[keySc])){                    
-        //                 matches.push(scales[keySc]);
-        //             }
-        //         } else {
-        //             console.log("subtract" + m);
-        //             matches.slice(m,1);
-        //         }
-        //     }
-
-        //     m++;
-        // }
-
-        // console.log(matches)
-
+        this.setState({scales: s});
     }
 
     assignButtons(keyName, divClass){
+
         return(
+
             <KeyButton onClick={() => this.handleClick(keyName)} value={keyName} class={divClass} />
+
         );
     }
 
