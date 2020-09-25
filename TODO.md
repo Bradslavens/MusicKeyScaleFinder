@@ -9,3 +9,8 @@
 9. add a back button to undo an entry
 10. add reset button
 11. add comment/review section
+12. add subscribe field
+13. add upvotes
+14. social media share buttons
+15. add schema.org schemas
+<!-- 16. add semantic elements -->
