@@ -4,6 +4,7 @@
 <!-- 4. optimize for seo -->
 4. a. register site with google etc
 4. b. set up accept cookie popup
+<!-- 4. c. optimize for mobile -->
 5. add google ads
 6. build for production
 7. push to github
