@@ -16,4 +16,5 @@
 13. add upvotes
 14. social media share buttons
 15. add schema.org schemas
+16. add custom domain
 <!-- 16. add semantic elements -->
