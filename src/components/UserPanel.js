@@ -19,7 +19,7 @@ class UserPanel extends React.Component{
 
     render(){
         return (
-            <div>
+            <section>
                 <h2 class="text-xl font-bold px-5 py-8 ">
                     <ol class="px-10 list-decimal">
                         <li>Start by entering notes on the <a href="#keyboard" class="text-indigo-700 underline">simulated keyboard</a>.</li>
@@ -32,7 +32,7 @@ class UserPanel extends React.Component{
                 </div>
                 <h2 class="text-xl font-bold px-10 pt-3 pb-0">Results:</h2>
                 <Results scaleMatches={this.state.scales} />
-            </div>
+            </section>
         )
     }
 
