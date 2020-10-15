@@ -98,14 +98,10 @@ function generateScale(scale, ext){
         ext[k] =  key[l];
 
         l = l+scale[k]-1;
-
-        console.log(scale[k]);
         
         k++;
     }
 }
-
-console.log(scales);
 
 export default scales;
 

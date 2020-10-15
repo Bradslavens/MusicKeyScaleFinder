@@ -15,6 +15,7 @@ class UserPanel extends React.Component{
         }
         this.handleClick = this.handleClick.bind(this)
         this.matchKeys = this.matchKeys.bind(this)
+        this.resetUserKeys = this.resetUserKeys.bind(this)
     }
 
     render(){
@@ -26,7 +27,7 @@ class UserPanel extends React.Component{
                         <li>Then see the <a href="#results" class="text-indigo-700 underline">results</a> below.</li>
                     </ol>
                 </h2>
-                <NoteInput  userKeys={this.state.userKeys}/>
+                <NoteInput  resetUserKeys = {this.resetUserKeys} userKeys={this.state.userKeys}/>
                 <div class="flex flex-wrap justify-left bg-gray-200 px-10 py-5">                    
                     {this.renderButtons()}
                 </div>
@@ -44,6 +45,11 @@ class UserPanel extends React.Component{
         
         this.setState({userIn: name});
 
+    }
+
+    resetUserKeys(){
+        console.log("reset")
+        this.setState({userKeys: []});
     }
 
     matchKeys(userIn){
