@@ -1,5 +1,5 @@
 import React from 'react';
-import KeyButton from './KeyButton';
+import KeyButton from './KeyButton'
 import NoteInput from './NoteInput'
 import Results from './Results'
 import scales from '../data/scaleData'
