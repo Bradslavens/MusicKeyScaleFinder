@@ -10,7 +10,7 @@
 <!-- 7. push to github -->
 <!-- 8. deploy to production server -->
 9. add a back button to undo an entry
-10. add reset button
+10. add reset button FIX
 11. add comment/review section
 12. add subscribe field
 13. add upvotes
